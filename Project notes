@@ -1,0 +1,16 @@
+1. basic website setup --> Done
+2. Add a textfield and retrive data to the backend and fetch the stock info and display --> Done
+3. Intgrate the core code with views.py --> Done
+4. Update the Triggers --> Done
+5. Set the HTML form with clear cut structure 
+	5.1. use the if conditions in the jinja template
+6. create the User Database
+7. Integrate User DB and the CORE Code (personalise the code to each user) 
+
+
+
+
+Future Updates
+1. when it is weekend show the stock data of friday
+	1.1 Same when it is with holidays
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- <link rel="stylesheet" href="theme.css"> -->
+  <style>
+    *{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;   
+}
+
+body{
+    margin: 30px 50px;
+    background-color: #010001;
+}
+
+.container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 690px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.search-bar{
+    width: 65%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar label{
+    font-size: 25px;
+    color: #FFFEFE;
+}
+
+.search-bar .input-stock[type='text']{
+    width: 750px;
+    padding: 13px;
+    border: 3px solid #FFFEFE;
+    border-radius: 25px;
+    background-color: #010001;
+}
+
+table{
+  margin-top: 40px;
+}
+
+table, td{
+  border: 2px solid #FFFEFE;
+  color: #FFFEFE;
+}
+
+td{
+  padding: 3px;
+}
+  </style>
+</head>
+<body>
+	<div class="container">
+		<div class="search-bar">
+			<form action={% url 'getstock' %}  method="POST" class="getDataForm">
+			{% csrf_token %}
+				<label>Stock</label>
+				<input type="text"  placeholder="Enter Stock Name" id="stock" class="input-stock" name="stock">
+			</form>
+		</div>
+		<div class="data-display">
+			<div class="data-table">
+                <table>
+                    <tr>
+                      {% for col in df.columns %}
+                        <td>
+                          {{col}}
+                        </td>
+                      {% endfor %}
+                    </tr>
+                      {% for index, row in df.iterrows %}
+                        <tr>
+                          {% for cell in row %}
+                            <td>
+                              {{cell}}
+                            </td>
+                          {% endfor %}
+                        </tr>
+                      {% endfor %}
+                  </table>
+            </div>
+		</div>
+	</div>
+</body>
+</html>
+172731
