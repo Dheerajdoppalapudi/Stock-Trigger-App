@@ -5,7 +5,7 @@ from twilio.rest import Client
 import yfinance as yf
 
 def index(request):
-    return render(request, 'per_profile/index.html')
+    return render(request, 'per_profile/index2.html')
 
 def getstock(request):
     if request.method == 'POST' and 'stock' in request.POST:
@@ -14,11 +14,12 @@ def getstock(request):
         tickerSymbol = symbol
         tickerData = yf.Ticker(tickerSymbol)
 
-        startDate = datetime.today().strftime('%Y-%m-%d')
+        startDate = datetime.today() - timedelta(days = 1)
+        startDate = startDate.strftime('%Y-%m-%d')
         endDate = datetime.today() + timedelta(1)
         endDate = endDate.strftime('%Y-%m-%d')
 
-        tickerDf = tickerData.history(period='1d', start=startDate, end=endDate, interval='2m')
+        tickerDf = tickerData.history(period='1d', start=startDate, end=endDate, interval='30m')
 
         # Rounding of the data 
         tickerDf = tickerDf.round(3)
@@ -40,7 +41,7 @@ def getstock(request):
              'message': message,
             }   
 
-            return render(request, 'per_profile/index.html', context)
+            return render(request, 'per_profile/index2.html', context)
         
         elif 'stock' in request.POST:
             context = {
@@ -48,7 +49,7 @@ def getstock(request):
              'symbol': symbol
             }
 
-            return render(request, 'per_profile/index.html', context)
+            return render(request, 'per_profile/index2.html', context)
         else:
             return HttpResponse('wrong data form!!!')
     else:
