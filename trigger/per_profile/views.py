@@ -103,10 +103,9 @@ triggerList = {}
 
 # looping(list)
 
-
-
-
-# Therse are the Vs code basics i am trying to master 
-# trying to use the mouse as less as possible so that i can same time 
-# need some extra lines of code 
-# repeating the word time so that i can replace tiume multiple times
+def getUserTriggers(request):
+    context = {
+        "Data": "Data"
+    }
+    return render(request, 'per_profile/index2.html', context)
+    

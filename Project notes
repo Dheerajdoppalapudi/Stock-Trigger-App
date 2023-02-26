@@ -3,9 +3,10 @@
 3. Intgrate the core code with views.py --> Done
 4. Update the Triggers --> Done
 5. Set the HTML form with clear cut structure 
-	5.1. use the if conditions in the jinja template
+	5.1. use the if conditions in the jinja template --> Done
 6. create the User Database
-7. Integrate User DB and the CORE Code (personalise the code to each user) 
+7. Integrate User DB and the CORE Code (personalise the code to each user
+8. Show previous Triggers by the user 
 
 
 

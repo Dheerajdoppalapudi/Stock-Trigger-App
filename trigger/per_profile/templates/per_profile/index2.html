@@ -42,7 +42,7 @@
         }
 
         .stock-input {
-            width:  0%;
+            width:  40%;
             padding: 8px;
             border-radius: 22px;
             border: 3px solid white;
@@ -83,7 +83,6 @@
             align-items: center;
             justify-content: center;
             flex-direction: row;
-            align-content: space-between
         }
 
         .number-inp {
@@ -123,10 +122,39 @@
             display: contents;
             align-items: center;
         }
+
+        .navbar{
+            margin: 0px 60px;
+            display: flex;
+            float:  right;
+            margin-bottom: 40px;
+        }
+
+        .navbar button{
+            font-size: 15px;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 5px;
+            /* color: #0077ff; */
+            color: #E2B842;
+            background-color: transparent;
+        }
+
+        .navbar button:hover{
+            font-size: 15px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
+    <div class="navbar">
+        <ul>
+            <li>your Previous Triggers</li>
+            <button>Login</button>
+            <button>Sign Up</button>
+        </ul>
+    </div>
     <div class="container">
         <div class="input-group">
             <form action={% url 'getstock' %} method="POST" class="getDataForm">
@@ -135,6 +163,7 @@
                 <input type="text" class="stock-input" id="stock" name="stock">
             </form>
         </div>
+        {% if df|length %}
         <div class="stock-data">
             <table>
                 <thead>
@@ -179,6 +208,7 @@
             <button id="above-btn">Above</button>
             <button id="below-btn">Below</button>
         </div>
+        {% endif %}
     </div>
     <div class="false-padding"></div>
 </body>
