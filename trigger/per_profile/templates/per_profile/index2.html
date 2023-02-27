@@ -130,7 +130,8 @@
             margin-bottom: 40px;
         }
 
-        .navbar button{
+        .navbar a{
+            text-decoration: none;
             font-size: 15px;
             padding: 8px 18px;
             border: none;
@@ -144,6 +145,16 @@
             font-size: 15px;
             font-weight: bold;
         }
+
+        .navbar span{
+            ext-decoration: none;
+            font-size: 15px;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 5px;
+            /* color: #0077ff; */
+            color: #E2B842;
+        }
     </style>
 </head>
 
@@ -151,8 +162,10 @@
     <div class="navbar">
         <ul>
             <li>your Previous Triggers</li>
-            <button>Login</button>
-            <button>Sign Up</button>
+            <!-- <button>Login</button>
+            <button>Sign Up</button> -->
+            <span> Hello, {{ request.user }} </span>
+            <button><a href="{% url 'logout' %}">Log Out</a></button>
         </ul>
     </div>
     <div class="container">
